@@ -1,0 +1,45 @@
+\begin{table}[htbp]
+\centering
+\footnotesize
+\setlength{\tabcolsep}{4pt}
+\caption{Decadalized impact of TVA on growth rate of outcomes, 1940--2000 (replication of Table III)}
+\label{tab:km_t3}
+\begin{tabular}{lcccccc}
+\toprule
+ & Unadjusted & S.E. & Controls & Clustered S.E. & Spatial HAC & N \\
+ & (1) & (2) & (3) & (4) & (5) & (6) \\
+\midrule
+\multicolumn{7}{l}{\textit{Panel A: TVA vs. rest of US}} \\
+Population & 0.004 & (0.021) & 0.007 & (0.020) & (0.018) & 1907 \\
+Average Manufacturing Wage & 0.027*** & (0.006) & 0.005 & (0.004) & (0.005) & 1172 \\
+Agricultural Employment & -0.130*** & (0.026) & -0.056** & (0.024) & (0.027) & 1907 \\
+Manufacturing Employment & 0.076*** & (0.013) & 0.059*** & (0.015) & (0.023) & 1907 \\
+Value of Farm Production & -0.028 & (0.028) & 0.002 & (0.032) & (0.026) & 1903 \\
+Median Family Income (1950--2000) & 0.072*** & (0.014) & 0.021 & (0.013) & (0.011) & 1905 \\
+Average Agricultural Land Value & 0.066*** & (0.013) & -0.002 & (0.012) & (0.016) & 1906 \\
+Median Housing Value & 0.040** & (0.017) & 0.005 & (0.015) & (0.015) & 1906 \\
+\addlinespace
+\multicolumn{7}{l}{\textit{Panel B: TVA vs. US South}} \\
+Population & -0.007 & (0.018) & 0.014 &  & (0.019) & 942 \\
+Average Manufacturing Wage & 0.003 & (0.006) & 0.001 &  & (0.005) & 610 \\
+Agricultural Employment & -0.097*** & (0.030) & -0.051* &  & (0.027) & 942 \\
+Manufacturing Employment & 0.079*** & (0.023) & 0.063*** &  & (0.024) & 942 \\
+Value of Farm Production & -0.005 & (0.025) & -0.006 &  & (0.026) & 939 \\
+Median Family Income (1950--2000) & 0.041*** & (0.012) & 0.024** &  & (0.011) & 942 \\
+Average Agricultural Land Value & 0.031* & (0.018) & -0.003 &  & (0.017) & 942 \\
+Median Housing Value & 0.019 & (0.017) & 0.007 &  & (0.016) & 942 \\
+\addlinespace
+\multicolumn{7}{l}{\textit{Panel C: TVA vs. proposed authorities}} \\
+Population & 0.011 & (0.018) & 0.001 &  & (0.017) & 991 \\
+Average Manufacturing Wage & 0.018*** & (0.007) & 0.005 &  & (0.006) & 618 \\
+Agricultural Employment & -0.101*** & (0.029) & -0.071*** &  & (0.027) & 991 \\
+Manufacturing Employment & 0.066*** & (0.024) & 0.053** &  & (0.024) & 991 \\
+Value of Farm Production & -0.002 & (0.026) & 0.011 &  & (0.035) & 989 \\
+Median Family Income (1950--2000) & 0.060*** & (0.012) & 0.025** &  & (0.011) & 991 \\
+Average Agricultural Land Value & 0.060*** & (0.019) & -0.003 &  & (0.016) & 991 \\
+Median Housing Value & 0.033** & (0.016) & 0.009 &  & (0.016) & 991 \\
+\addlinespace
+\bottomrule
+\end{tabular}
+\begin{minipage}{0.95\textwidth}\vspace{4pt}\scriptsize Notes: Replication in Python of Kline and Moretti (2014). Decadalized changes. Column (3) is the Oaxaca-Blinder estimate of Kline (2011). Clustered S.E. by state; spatial HAC as in Conley (1999) with 200-mile bandwidth. Stars: clustered S.E. in Panel A, spatial HAC in Panels B and C. * 10\%, ** 5\%, *** 1\%.\end{minipage}
+\end{table}

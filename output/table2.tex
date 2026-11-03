@@ -1,0 +1,42 @@
+\begin{table}[htbp]
+\centering
+\footnotesize
+\setlength{\tabcolsep}{4pt}
+\caption{Decadalized growth rates in TVA region vs. counterfactual regions, 1900--1940 (replication of Table II)}
+\label{tab:km_t2}
+\begin{tabular}{lcccccc}
+\toprule
+ & Unadjusted & S.E. & Controls & Clustered S.E. & Spatial HAC & N \\
+ & (1) & (2) & (3) & (4) & (5) & (6) \\
+\midrule
+\multicolumn{7}{l}{\textit{Panel A: TVA vs. rest of US}} \\
+Population & 0.007 & (0.016) & 0.010 & (0.012) & (0.016) & 1776 \\
+Total Employment & -0.009 & (0.016) & 0.005 & (0.013) & (0.016) & 1776 \\
+Housing Units & -0.006 & (0.015) & 0.007 & (0.011) & (0.013) & 1776 \\
+Average Manufacturing Wage & 0.009 & (0.018) & 0.010 & (0.021) & (0.016) & 1428 \\
+Manufacturing Share & 0.007* & (0.004) & 0.005 & (0.004) & (0.005) & 1776 \\
+Agricultural Share & -0.007* & (0.004) & -0.001 & (0.005) & (0.005) & 1776 \\
+Average Agricultural Land Value & 0.078*** & (0.021) & 0.025 & (0.018) & (0.018) & 1746 \\
+\addlinespace
+\multicolumn{7}{l}{\textit{Panel B: TVA vs. US South}} \\
+Population & -0.018 & (0.018) & 0.003 &  & (0.016) & 850 \\
+Total Employment & -0.028 & (0.018) & 0.001 &  & (0.016) & 850 \\
+Housing Units & -0.025 & (0.016) & 0.005 &  & (0.013) & 850 \\
+Average Manufacturing Wage & 0.001 & (0.015) & 0.001 &  & (0.016) & 687 \\
+Manufacturing Share & 0.005 & (0.005) & 0.005 &  & (0.005) & 850 \\
+Agricultural Share & 0.003 & (0.004) & -0.002 &  & (0.005) & 850 \\
+Average Agricultural Land Value & -0.009 & (0.020) & -0.007 &  & (0.017) & 839 \\
+\addlinespace
+\multicolumn{7}{l}{\textit{Panel C: TVA vs. proposed authorities}} \\
+Population & 0.026 & (0.019) & 0.011 &  & (0.016) & 926 \\
+Total Employment & 0.012 & (0.017) & 0.006 &  & (0.015) & 926 \\
+Housing Units & 0.014 & (0.016) & 0.006 &  & (0.013) & 926 \\
+Average Manufacturing Wage & 0.012 & (0.015) & 0.008 &  & (0.017) & 734 \\
+Manufacturing Share & 0.007 & (0.006) & 0.005 &  & (0.006) & 926 \\
+Agricultural Share & -0.005 & (0.006) & 0.004 &  & (0.006) & 926 \\
+Average Agricultural Land Value & 0.080*** & (0.026) & 0.017 &  & (0.018) & 908 \\
+\addlinespace
+\bottomrule
+\end{tabular}
+\begin{minipage}{0.95\textwidth}\vspace{4pt}\scriptsize Notes: Replication in Python of Kline and Moretti (2014). Decadalized changes. Column (3) is the Oaxaca-Blinder estimate of Kline (2011). Clustered S.E. by state; spatial HAC as in Conley (1999) with 200-mile bandwidth. Stars: clustered S.E. in Panel A, spatial HAC in Panels B and C. * 10\%, ** 5\%, *** 1\%.\end{minipage}
+\end{table}

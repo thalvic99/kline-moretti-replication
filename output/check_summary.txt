@@ -1,0 +1,12 @@
+Logit converged: True
+Samples: full=2489 (Stata 2489), trimmed=1907 (Stata 1907), authorities=991 (Stata 991)
+Table I: 180/180 cells match the paper
+Table II: 108/110 cells match the paper
+   Panel C lnemp b_unadj: ours 0.0122 vs paper -0.012
+   Panel C lnhouse b_unadj: ours 0.0138 vs paper -0.014
+Table III: 127/128 cells match the paper
+   Panel C lnvfprod b_unadj: ours -0.0018 vs paper 0.002
+Table IV: 44/45 cells match the paper
+   lnvfprod Aut_6000: ours -0.0335 vs paper -0.033
+Figure III: quantile breaks -0.0031567, -0.0002088, 0.0003959, 0.0012970, 0.0045486 | weights sum to 1.0000 | counties without a boundary: 0
+   paper legend: -.0074167, -.000209, .000589, .001268, .0045465
