@@ -289,7 +289,15 @@ def tex_table4(df):
         for grp, dfree in (("US", 46), ("South", None), ("Aut", None)):
             for per in ("4060", "6000"):
                 b, se = r.get(f"{grp}_{per}"), r.get(f"{grp}_{per}_se")
-                cells.append(fmt(b, se, dfree) + dag(b, r.get(f"paper_{grp}_{per}")) if pd.notna(b) else "N/A")
+                if pd.notna(b):
+                    mark = dag(b, r.get(f"paper_{grp}_{per}"))
+                    col = ["US_4060", "US_6000", "South_4060", "South_6000", "Aut_4060", "Aut_6000"].index(f"{grp}_{per}")
+                    pstar = PV.TABLE4_STARS[r.outcome][col]
+                    if not mark and pstar is not None and stars(b, se, dfree) != pstar:
+                        mark = r"$^\ddagger$"
+                    cells.append(fmt(b, se, dfree) + mark)
+                else:
+                    cells.append("N/A")
                 ses.append(se_fmt(se) if pd.notna(se) else "")
         lines.append(f"{LABELS[r.outcome]} & " + " & ".join(cells) + r" \\")
         lines.append(" & " + " & ".join(ses) + r" \\")
@@ -297,8 +305,9 @@ def tex_table4(df):
               r"\begin{minipage}{0.95\textwidth}\vspace{4pt}\scriptsize "
               r"Notes: Oaxaca-Blinder estimates with full controls. S.E. in parentheses: clustered by "
               r"state (entire US) or spatial HAC with 200-mile bandwidth (South, proposed authorities). "
-              r"The paper reports point estimates only. $^\dagger$ differs from the published value after "
-              r"rounding. * 10\%, ** 5\%, *** 1\%."
+              r"The paper reports point estimates and stars only. $^\dagger$ point estimate differs from the "
+              r"published value after rounding; $^\ddagger$ same point estimate, different significance level. "
+              r"* 10\%, ** 5\%, *** 1\%."
               r"\end{minipage}", r"\end{table}"]
     return "\n".join(lines)
 
@@ -381,7 +390,7 @@ def figure3(S, counties_path: Path):
     # spmap default: 4 quantile classes
     breaks = np.quantile(w, [0, 0.25, 0.5, 0.75, 1])
     g_ctrl["cls"] = np.clip(np.searchsorted(breaks[1:-1], g_ctrl["w"], side="left"), 0, 3)
-    from style import BLUE, EMPTY, INK, MUTED, TAUPE, CREAM, save_figure, titles
+    from style import BLUE, MUTED, TAUPE, CREAM, save_figure
     shades = ["#ffffff", CREAM, TAUPE, "#5e5040"]          # thesis sequential palette (SEQ)
 
     fig, ax = plt.subplots(figsize=(11, 6.6))
@@ -397,11 +406,7 @@ def figure3(S, counties_path: Path):
     ax.set_xlim(-125, -66)
     ax.set_ylim(24, 50)
     ax.set_axis_off()
-    titles(fig, "Weight on untreated counties (replication of Figure III)",
-           "implicit Oaxaca-Blinder weight of each control county in the trimmed sample",
-           "Weights can be negative; they sum to one. County boundaries by present-day FIPS code "
-           "(plotly GeoJSON). Data: Kline and Moretti (2014) replication archive.")
-    fig.tight_layout(rect=(0, 0.02, 1, 0.92))
+    fig.tight_layout()
     save_figure(fig, OUT / "figure3_weights.png")
 
     unmatched = len(ctrl) + len(tva) - len(g_ctrl) - len(g_tva)

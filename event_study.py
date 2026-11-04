@@ -41,7 +41,7 @@ sys.path.insert(0, str(Path(__file__).parent))
 from build import build_variables                     # noqa: E402
 from estimators import oaxaca                         # noqa: E402
 from replicate import OUT, arrays, check_data, make_samples, winsorize   # noqa: E402
-from style import BG, CREAM, GREY, INK, MUTED, TAUPE, save_figure, style_axis, titles  # noqa: E402
+from style import BG, CREAM, GREY, INK, MUTED, TAUPE, save_figure, style_axis  # noqa: E402
 
 YEARS = ["0", "10", "20", "30", "40", "50", "60", "70", "80", "90", "2000"]
 BASE = "40"
@@ -100,7 +100,7 @@ def plot(es: pd.DataFrame):
               "Proposed authorities": dict(color=TAUPE, marker="D", offset=0.9)}
     for ax, (var, label) in zip(axes.flat, OUTCOMES.items()):
         sub = es[es["outcome"] == var]
-        ax.axvspan(1933, 1958, color=CREAM, alpha=0.55, lw=0, zorder=0)
+        ax.axvspan(1940, 1958, color=CREAM, alpha=0.55, lw=0, zorder=0)
         ax.axhline(0, color=GREY, lw=0.8)
         ax.axvline(1940, color=MUTED, ls=":", lw=0.8)
         for comp, st in styles.items():
@@ -122,15 +122,10 @@ def plot(es: pd.DataFrame):
     handles = [plt.Line2D([], [], color=st["color"], marker=st["marker"], lw=1.4, mfc=st["color"])
                for st in styles.values()]
     handles.append(plt.Rectangle((0, 0), 1, 1, fc=CREAM, alpha=0.55))
-    fig.legend(handles, list(styles) + ["1933–1958: large federal transfers"], loc="upper left",
-               bbox_to_anchor=(0.005, 0.915), ncol=3, frameon=False, fontsize=9)
-    titles(fig, "Effect of TVA by census year: change relative to 1940",
-           "Oaxaca-Blinder estimate and 95% CI; filled = interval excludes 0",
-           "Same counties in every year (balanced panel by outcome); controls and samples of Kline and Moretti (2014). "
-           "Rest of US: S.E. clustered by state; proposed authorities: spatial HAC (200 miles).\n"
-           "Changes up to 1940 include treated years (1933-40); 1920 and 1930 coefficients are partly mechanical "
-           "(1920/30 levels are controls).")
-    fig.tight_layout(rect=(0, 0.04, 1, 0.9))
+    fig.legend(handles, list(styles) + ["1940–1958: 73% of federal transfers"], loc="upper left",
+               bbox_to_anchor=(0.005, 1.0), ncol=3, frameon=False, fontsize=9)
+    # No embedded title or notes: the LaTeX caption and notes carry them (thesis style otherwise).
+    fig.tight_layout(rect=(0, 0, 1, 0.94))
     save_figure(fig, OUT / "event_study.png")
 
 

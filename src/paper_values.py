@@ -118,3 +118,15 @@ TABLE4 = {
     "lnfaval":     [0.027, -0.017, 0.018, -0.015, 0.029, -0.021],
     "lnmedhsval":  [0.019, -0.003, 0.010, 0.005, 0.020, 0.003],
 }
+
+# Significance stars printed in Table IV (same order as TABLE4)
+TABLE4_STARS = {
+    "lnpop":       ["", "", "", "", "", ""],
+    "lnwage":      ["", "*", "", "", "", ""],
+    "lnagr":       ["***", "***", "***", "***", "***", "***"],
+    "lnmanuf":     ["***", "**", "***", "*", "**", "**"],
+    "lnvfprod":    ["*", "", "**", "", "**", ""],
+    "lnmedfaminc": [None, "", None, "", None, "*"],
+    "lnfaval":     ["", "", "", "", "", ""],
+    "lnmedhsval":  ["", "", "", "", "", ""],
+}
