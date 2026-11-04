@@ -1,0 +1,85 @@
+outcome,label,comparison,year,effect,se,N,N_tva
+lnagr,Agricultural employment,Proposed authorities,1900,-0.08080572793585916,0.03925126652754559,925.0,162.0
+lnagr,Agricultural employment,Proposed authorities,1910,-0.0884566313462769,0.057450852976562966,965.0,162.0
+lnagr,Agricultural employment,Proposed authorities,1920,-0.09900410525730396,0.029808148280036556,991.0,163.0
+lnagr,Agricultural employment,Proposed authorities,1930,-0.06954952333489794,0.03152483177737006,991.0,163.0
+lnagr,Agricultural employment,Proposed authorities,1940,0.0,0.0,,
+lnagr,Agricultural employment,Proposed authorities,1950,0.08551014469025803,0.03573293959073433,991.0,163.0
+lnagr,Agricultural employment,Proposed authorities,1960,0.23768359694649333,0.07683948400222856,991.0,163.0
+lnagr,Agricultural employment,Proposed authorities,1980,-0.05295124680198282,0.14291500960731152,991.0,163.0
+lnagr,Agricultural employment,Proposed authorities,1990,-0.17246299527980735,0.1748789843651892,991.0,163.0
+lnagr,Agricultural employment,Proposed authorities,2000,-0.4257647851282633,0.16454485935599186,991.0,163.0
+lnagr,Agricultural employment,Rest of US,1900,-0.041569279337156706,0.04436594581335211,1769.0,162.0
+lnagr,Agricultural employment,Rest of US,1910,-0.05917834014990747,0.05310569897129621,1857.0,162.0
+lnagr,Agricultural employment,Rest of US,1920,-0.07666093891381098,0.02568578422956276,1907.0,163.0
+lnagr,Agricultural employment,Rest of US,1930,-0.05887345727091947,0.034273615478470465,1907.0,163.0
+lnagr,Agricultural employment,Rest of US,1940,0.0,0.0,,
+lnagr,Agricultural employment,Rest of US,1950,0.08351699194309722,0.026068768033801756,1907.0,163.0
+lnagr,Agricultural employment,Rest of US,1960,0.2121652631648563,0.07185329495684391,1907.0,163.0
+lnagr,Agricultural employment,Rest of US,1980,-0.09888515932335773,0.160970526288463,1906.0,163.0
+lnagr,Agricultural employment,Rest of US,1990,-0.21938954104739938,0.1889334864938478,1906.0,163.0
+lnagr,Agricultural employment,Rest of US,2000,-0.3372427833046623,0.1454092669701506,1907.0,163.0
+lnmanuf,Manufacturing employment,Proposed authorities,1900,-0.37034712409893666,0.24457063541521176,698.0,115.0
+lnmanuf,Manufacturing employment,Proposed authorities,1910,-0.17533301400450552,0.22465038527644005,965.0,162.0
+lnmanuf,Manufacturing employment,Proposed authorities,1920,0.013257870966473906,0.19343097493509967,991.0,163.0
+lnmanuf,Manufacturing employment,Proposed authorities,1930,-0.115019842020877,0.18141702542339214,991.0,163.0
+lnmanuf,Manufacturing employment,Proposed authorities,1940,0.0,0.0,,
+lnmanuf,Manufacturing employment,Proposed authorities,1950,0.04636311469367804,0.052779259387835585,991.0,163.0
+lnmanuf,Manufacturing employment,Proposed authorities,1960,0.19459183202676278,0.09373936548205922,991.0,163.0
+lnmanuf,Manufacturing employment,Proposed authorities,1970,0.3449535545526152,0.12431869013926188,990.0,163.0
+lnmanuf,Manufacturing employment,Proposed authorities,1980,0.28453925741102104,0.1358339067482601,991.0,163.0
+lnmanuf,Manufacturing employment,Proposed authorities,1990,0.3829679763640548,0.1423898017194909,991.0,163.0
+lnmanuf,Manufacturing employment,Proposed authorities,2000,0.31539321585911195,0.14392770304025668,991.0,163.0
+lnmanuf,Manufacturing employment,Rest of US,1900,-0.3544759959643806,0.17550768569513853,1324.0,115.0
+lnmanuf,Manufacturing employment,Rest of US,1910,-0.2413374675279858,0.16811960875556875,1857.0,162.0
+lnmanuf,Manufacturing employment,Rest of US,1920,0.032289481018763944,0.14502931620144846,1907.0,163.0
+lnmanuf,Manufacturing employment,Rest of US,1930,-0.1426710971905114,0.22421531619253554,1907.0,163.0
+lnmanuf,Manufacturing employment,Rest of US,1940,0.0,0.0,,
+lnmanuf,Manufacturing employment,Rest of US,1950,0.03245902445819815,0.05063218213130874,1907.0,163.0
+lnmanuf,Manufacturing employment,Rest of US,1960,0.2279929078557903,0.06087992522091498,1907.0,163.0
+lnmanuf,Manufacturing employment,Rest of US,1970,0.3694526946970029,0.0763460290698096,1904.0,163.0
+lnmanuf,Manufacturing employment,Rest of US,1980,0.3126574360420973,0.08093294739242596,1906.0,163.0
+lnmanuf,Manufacturing employment,Rest of US,1990,0.3721350250921125,0.08462011870391536,1906.0,163.0
+lnmanuf,Manufacturing employment,Rest of US,2000,0.35579636322424,0.09130989777993197,1907.0,163.0
+lnpop,Population,Proposed authorities,1900,-0.04278528369384815,0.06392894275790857,926.0,162.0
+lnpop,Population,Proposed authorities,1910,-0.03360772499414216,0.047066426976067534,965.0,162.0
+lnpop,Population,Proposed authorities,1920,-0.036029382918361746,0.03464530494435261,991.0,163.0
+lnpop,Population,Proposed authorities,1930,-0.030251507152006543,0.015587792543132447,991.0,163.0
+lnpop,Population,Proposed authorities,1940,0.0,0.0,,
+lnpop,Population,Proposed authorities,1950,0.042853524838984365,0.029360043427526076,991.0,163.0
+lnpop,Population,Proposed authorities,1960,0.056076366011991785,0.05053917216929875,991.0,163.0
+lnpop,Population,Proposed authorities,1970,0.06350006969088778,0.06303380369780578,991.0,163.0
+lnpop,Population,Proposed authorities,1980,0.024305260148185293,0.07793763182670696,991.0,163.0
+lnpop,Population,Proposed authorities,1990,0.00568741927825131,0.08901882525124846,991.0,163.0
+lnpop,Population,Proposed authorities,2000,0.005106538200175537,0.10415163727342586,991.0,163.0
+lnpop,Population,Rest of US,1900,-0.03855742235382775,0.04970452201627812,1776.0,162.0
+lnpop,Population,Rest of US,1910,-0.036570688434358345,0.036273201292030585,1857.0,162.0
+lnpop,Population,Rest of US,1920,-0.030944396668401097,0.023340706216027348,1907.0,163.0
+lnpop,Population,Rest of US,1930,-0.029884536183054686,0.010470150674339757,1907.0,163.0
+lnpop,Population,Rest of US,1940,0.0,0.0,,
+lnpop,Population,Rest of US,1950,0.04352244758639631,0.03329012073834777,1907.0,163.0
+lnpop,Population,Rest of US,1960,0.07318757415094884,0.056249039553724504,1907.0,163.0
+lnpop,Population,Rest of US,1970,0.08638589953815365,0.07188721035349051,1907.0,163.0
+lnpop,Population,Rest of US,1980,0.06433694613497629,0.08902139908814559,1906.0,163.0
+lnpop,Population,Rest of US,1990,0.043518946541682924,0.0992133125635708,1906.0,163.0
+lnpop,Population,Rest of US,2000,0.04155244443776035,0.11866775935323377,1907.0,163.0
+lnwage,Average manufacturing wage,Proposed authorities,1900,-0.03141376464836848,0.06973510917794797,734.0,128.0
+lnwage,Average manufacturing wage,Proposed authorities,1920,-0.016861002607507725,0.04465261837043503,786.0,129.0
+lnwage,Average manufacturing wage,Proposed authorities,1930,0.11829374472402257,0.07422770621898657,786.0,129.0
+lnwage,Average manufacturing wage,Proposed authorities,1940,0.0,0.0,,
+lnwage,Average manufacturing wage,Proposed authorities,1950,-0.057949300715318564,0.02411764590021278,733.0,120.0
+lnwage,Average manufacturing wage,Proposed authorities,1960,0.013481013557071764,0.030740093317989284,738.0,122.0
+lnwage,Average manufacturing wage,Proposed authorities,1970,-0.040218922275750746,0.03890985246840253,692.0,128.0
+lnwage,Average manufacturing wage,Proposed authorities,1980,-0.020933378486261756,0.034867449721376675,699.0,127.0
+lnwage,Average manufacturing wage,Proposed authorities,1990,-0.015259874586444622,0.03473942027180027,672.0,126.0
+lnwage,Average manufacturing wage,Proposed authorities,2000,0.03290337231858298,0.03465918017219491,618.0,123.0
+lnwage,Average manufacturing wage,Rest of US,1900,-0.04075619573951539,0.08292488285722999,1428.0,128.0
+lnwage,Average manufacturing wage,Rest of US,1920,-0.026320114284455437,0.04768200575805342,1533.0,129.0
+lnwage,Average manufacturing wage,Rest of US,1930,0.11344730175870141,0.06639194468249791,1533.0,129.0
+lnwage,Average manufacturing wage,Rest of US,1940,0.0,0.0,,
+lnwage,Average manufacturing wage,Rest of US,1950,-0.06720149849026319,0.021549967943056223,1426.0,120.0
+lnwage,Average manufacturing wage,Rest of US,1960,-0.010787063569671962,0.02182045350493363,1439.0,122.0
+lnwage,Average manufacturing wage,Rest of US,1970,-0.02883441869197445,0.031625250248170166,1335.0,128.0
+lnwage,Average manufacturing wage,Rest of US,1980,0.0031330112625009843,0.024727421830221856,1344.0,127.0
+lnwage,Average manufacturing wage,Rest of US,1990,-0.00765072517121157,0.025397437462976125,1289.0,126.0
+lnwage,Average manufacturing wage,Rest of US,2000,0.031450702631744765,0.022046952075367936,1172.0,123.0

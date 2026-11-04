@@ -42,16 +42,19 @@ Takes ~20 seconds. County boundaries for Figure III are downloaded automatically
 | Table III | 127 / 128 |
 | Table IV | 44 / 45 |
 
-Differences:
-- Three unadjusted estimates in Panel C (proposed authorities) have the opposite sign
-  from the paper with the same magnitude (Table II: employment, housing units;
-  Table III: farm production). The simple difference in means confirms the signs found
-  here, so these are likely typos in the published table.
+Differences (marked with a dagger in the .tex tables):
+- Employment and housing units, Table II, Panel C (unadjusted): same size as the paper
+  to three decimals, opposite sign. The raw difference in means is also positive (as is
+  population in the same panel), so a sign error in the published table is likely.
+- Farm production, Table III, Panel C (unadjusted): essentially zero (−0.0018 here,
+  +0.0004 without winsorizing, +0.002 in the paper); the sign depends on winsorization.
 - Table IV, farm production 1960–2000 vs. authorities: −0.0335 here vs. −0.033 in the
-  paper (rounding boundary).
-- Figure III: same spatial pattern; the 25th percentile and the maximum of the legend
-  match, the other cutoffs differ slightly. The map code is commented out in the
-  archive, so the published map was probably made with an earlier version of the code.
+  paper (a small numerical difference).
+- Figure III: same spatial pattern; only some legend cutoffs match, and neither the
+  trimmed nor the untrimmed sample reproduces the published minimum. Cause undetermined.
+
+Comparison is with the tables of the 2013 working-paper version. The paper's text says
+584 controls are trimmed; its Table I implies 582, which is what the code produces.
 
 ## Extension: event study by decade (`event_study.py`)
 
@@ -61,9 +64,18 @@ python event_study.py --data data/build.dta
 
 Oaxaca-Blinder effect of TVA for each census year, on the change relative to 1940
 (cumulative log points), for manufacturing and agricultural employment, population
-and manufacturing wages. Both comparison groups (rest of US with clustered S.E.;
-proposed authorities with spatial HAC). Outputs `output/event_study.png/.pdf/.csv`.
-Check: the 2000 coefficient divided by 6 equals Table III, Panel A, column 3.
+and manufacturing wages, against both comparison groups (rest of US with clustered S.E.;
+proposed authorities with spatial HAC). Main version: balanced panel by outcome (same
+counties in every year), because in 1900 about a quarter of counties report zero
+manufacturing employment and drop out of the log. The version where the sample changes
+across years is saved as `event_study_unbalanced.csv`; its 2000 coefficient divided by 6
+equals Table III, Panel A, column 3. Outputs `output/event_study.png/.pdf/.csv`.
+
+## Robustness: trimming rule (`robustness_trimming.py`)
+
+Re-estimates Table III, Panel A (manufacturing and agricultural employment) dropping
+0%, 10%, 25% (paper) and 50% of the controls with the lowest propensity score.
+Output: `output/robustness_trimming.csv`.
 
 ## Stata details reproduced (needed to match exactly)
 

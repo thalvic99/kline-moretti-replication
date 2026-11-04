@@ -60,8 +60,11 @@ def stata_p25(x: pd.Series) -> float:
     return x[int(np.ceil(k)) - 1]
 
 
-def make_samples(d: pd.DataFrame) -> dict:
-    """Propensity score, trimming and the three estimation samples."""
+def make_samples(d: pd.DataFrame, trim_q: float = 0.25) -> dict:
+    """Propensity score, trimming and the three estimation samples.
+
+    trim_q: share of control counties with the lowest propensity score to drop
+    (0.25 in the paper; other values only for the robustness check)."""
     d = d.dropna(subset=X_VARS + ["tva"]).copy()
 
     # Stata: "nowage20dum != 0 predicts failure perfectly -- dropped and 83 obs
@@ -73,7 +76,13 @@ def make_samples(d: pd.DataFrame) -> dict:
 
     # Trim controls with propensity score in the bottom quartile. Stata drops 582
     # controls: the one sitting exactly at p25 goes too (macro rounding), so <=.
-    cut = stata_p25(d.loc[d["tva"] == 0, "phat"])
+    ctrl_phat = d.loc[d["tva"] == 0, "phat"]
+    if trim_q == 0.25:
+        cut = stata_p25(ctrl_phat)
+    elif trim_q == 0:
+        cut = -np.inf
+    else:
+        cut = np.quantile(ctrl_phat, trim_q, method="inverted_cdf")
     trim = d[~((d["phat"] <= cut) & (d["tva"] == 0))].copy()
 
     # evaluation_aut.do: no trimming, controls are the proposed authorities
@@ -227,6 +236,13 @@ def se_fmt(x):
     return f"({x:.3f})" if pd.notna(x) else ""
 
 
+def dag(ours, paper):
+    """Dagger when the replicated value differs from the paper after rounding."""
+    if paper is None or pd.isna(paper) or pd.isna(ours):
+        return ""
+    return "" if round(float(ours), 3) == round(float(paper), 3) else r"$^\dagger$"
+
+
 def tex_long_run(df, caption, label):
     lines = [r"\begin{table}[htbp]", r"\centering", r"\footnotesize", r"\setlength{\tabcolsep}{4pt}",
              rf"\caption{{{caption}}}", rf"\label{{{label}}}",
@@ -243,8 +259,8 @@ def tex_long_run(df, caption, label):
                 cells = [fmt(r.b_unadj, r.se_unadj, G - 1), se_fmt(r.se_unadj),
                          fmt(r.b_adj, r.se_cl, G - 1), se_fmt(r.se_cl), se_fmt(r.se_hac)]
             else:
-                cells = [fmt(r.b_unadj, r.se_unadj), se_fmt(r.se_unadj),
-                         fmt(r.b_adj, r.se_hac), "", se_fmt(r.se_hac)]
+                cells = [fmt(r.b_unadj, r.se_unadj) + dag(r.b_unadj, r.paper_b_unadj), se_fmt(r.se_unadj),
+                         fmt(r.b_adj, r.se_hac) + dag(r.b_adj, r.paper_b_adj), "", se_fmt(r.se_hac)]
             lines.append(f"{LABELS[r.outcome]} & " + " & ".join(cells) + f" & {int(r.N)} \\\\")
         lines.append(r"\addlinespace")
     lines += [r"\bottomrule", r"\end{tabular}",
@@ -252,7 +268,9 @@ def tex_long_run(df, caption, label):
               r"Notes: Replication in Python of Kline and Moretti (2014). Decadalized changes. "
               r"Column (3) is the Oaxaca-Blinder estimate of Kline (2011). Clustered S.E. by state; "
               r"spatial HAC as in Conley (1999) with 200-mile bandwidth. Stars: clustered S.E. in "
-              r"Panel A, spatial HAC in Panels B and C. * 10\%, ** 5\%, *** 1\%."
+              r"Panel A, spatial HAC in Panels B and C. Outcomes winsorized at the 1st and 99th percentiles, "
+              r"as in the authors' code (not documented in the paper). $^\dagger$ differs from the published "
+              r"value after rounding (see text). * 10\%, ** 5\%, *** 1\%."
               r"\end{minipage}", r"\end{table}"]
     return "\n".join(lines)
 
@@ -271,7 +289,7 @@ def tex_table4(df):
         for grp, dfree in (("US", 46), ("South", None), ("Aut", None)):
             for per in ("4060", "6000"):
                 b, se = r.get(f"{grp}_{per}"), r.get(f"{grp}_{per}_se")
-                cells.append(fmt(b, se, dfree) if pd.notna(b) else "N/A")
+                cells.append(fmt(b, se, dfree) + dag(b, r.get(f"paper_{grp}_{per}")) if pd.notna(b) else "N/A")
                 ses.append(se_fmt(se) if pd.notna(se) else "")
         lines.append(f"{LABELS[r.outcome]} & " + " & ".join(cells) + r" \\")
         lines.append(" & " + " & ".join(ses) + r" \\")
@@ -279,7 +297,8 @@ def tex_table4(df):
               r"\begin{minipage}{0.95\textwidth}\vspace{4pt}\scriptsize "
               r"Notes: Oaxaca-Blinder estimates with full controls. S.E. in parentheses: clustered by "
               r"state (entire US) or spatial HAC with 200-mile bandwidth (South, proposed authorities). "
-              r"The paper reports point estimates only. * 10\%, ** 5\%, *** 1\%."
+              r"The paper reports point estimates only. $^\dagger$ differs from the published value after "
+              r"rounding. * 10\%, ** 5\%, *** 1\%."
               r"\end{minipage}", r"\end{table}"]
     return "\n".join(lines)
 
